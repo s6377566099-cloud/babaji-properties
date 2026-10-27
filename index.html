@@ -1231,7 +1231,7 @@
     propertySlider.addEventListener('input', updateCalculator);
 
     // Form Handling
-    function handleFormSubmit(e) {
+   function handleFormSubmit(e) {
       e.preventDefault();
       const name = document.getElementById('formName').value;
       const phone = document.getElementById('formPhone').value;
@@ -1239,16 +1239,20 @@
       const type = document.getElementById('formType').value;
       const area = document.getElementById('formArea').value;
       const budget = document.getElementById('formBudget').value;
-      const message = document.getElementById('formMessage').value;
+      const message = document.getElementById('formMessage').value || "None";
 
       const status = document.getElementById('formStatus');
       status.classList.remove('hidden');
-      status.innerHTML = `<i class="fa-solid fa-circle-check"></i> Thank you, ${name}! Your request has been received. Rakesh Ahuja will contact you at +91 9588904545 shortly.`;
+      status.innerHTML = `<i class="fa-solid fa-spinner fa-spin mr-1"></i> Opening WhatsApp to send your requirement...`;
 
-      // Clear fields
+      // Build WhatsApp message text
+      const text = `*Babaji Properties New Inquiry*%0A%0A*Name:* ${encodeURIComponent(name)}%0A*Phone:* ${encodeURIComponent(phone)}%0A*Requirement:* ${encodeURIComponent(intent)} - ${encodeURIComponent(type)}%0A*Preferred Location:* ${encodeURIComponent(area)}%0A*Budget Range:* ${encodeURIComponent(budget)}%0A*Message:* ${encodeURIComponent(message)}`;
+
       setTimeout(() => {
+        window.open(`https://wa.me/919588904545?text=${text}`, '_blank');
+        status.innerHTML = `<i class="fa-solid fa-circle-check"></i> Inquiry opened in WhatsApp!`;
         document.getElementById('leadForm').reset();
-      }, 2000);
+      }, 700);
     }
 
     function sendViaDirectWhatsApp() {
