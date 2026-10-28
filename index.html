@@ -232,7 +232,45 @@ html, body {
 
     </div>
   </section>
+<!-- FEATURED PROPERTIES DIRECTORY -->
+  <section id="properties" class="py-20 bg-slate-950 border-t border-slate-800/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+        <div>
+          <span class="text-amber-400 font-bold tracking-wider text-xs uppercase bg-amber-400/10 px-3 py-1 rounded-full border border-amber-400/20">Direct Deal • Zero Intermediaries</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-3">Verified Properties Directory</h2>
+          <p class="text-slate-400 text-sm mt-1">Every listed property is thoroughly scrutinized and title-verified by Babaji Properties.</p>
+        </div>
 
+        <!-- Filter Tabs -->
+        <div class="flex flex-wrap gap-2 text-xs font-semibold" id="categoryFilterContainer">
+          <button onclick="filterCategory('all')" class="category-btn active px-4 py-2 rounded-lg gold-gradient-bg text-slate-950 transition" data-filter="all">All Properties</button>
+          <button onclick="filterCategory('plot')" class="category-btn px-4 py-2 rounded-lg bg-slate-900 text-slate-300 border border-slate-800 hover:text-amber-400 transition" data-filter="plot">Plots</button>
+          <button onclick="filterCategory('commercial')" class="category-btn px-4 py-2 rounded-lg bg-slate-900 text-slate-300 border border-slate-800 hover:text-amber-400 transition" data-filter="commercial">Commercial</button>
+          <button onclick="filterCategory('house')" class="category-btn px-4 py-2 rounded-lg bg-slate-900 text-slate-300 border border-slate-800 hover:text-amber-400 transition" data-filter="house">Houses & Villas</button>
+          <button onclick="filterCategory('land')" class="category-btn px-4 py-2 rounded-lg bg-slate-900 text-slate-300 border border-slate-800 hover:text-amber-400 transition" data-filter="land">Agro Land</button>
+        </div>
+      </div>
+
+      <!-- Properties Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="propertiesGrid">
+        <!-- Rendered via JS -->
+      </div>
+
+      <!-- Post Property / Need Custom Property CTA -->
+      <div class="mt-14 bg-gradient-to-r from-amber-950/40 via-slate-900 to-amber-950/40 border border-amber-500/30 rounded-2xl p-8 text-center max-w-4xl mx-auto">
+        <h3 class="text-xl sm:text-2xl font-bold text-white mb-2">Looking to Sell Your Property?</h3>
+        <p class="text-sm text-slate-300 mb-6 max-w-xl mx-auto">
+          List your land, residential home, or commercial space with Babaji Properties for fast, direct buyer connections and just 1% commission!
+        </p>
+        <button onclick="openLeadModal('Sell Property Request')" class="px-7 py-3 rounded-xl gold-gradient-bg text-slate-950 font-extrabold text-sm hover:scale-105 transition shadow-lg shadow-amber-500/20">
+          <i class="fa-solid fa-bullhorn mr-2"></i> Register Your Property to Sell
+        </button>
+      </div>
+
+    </div>
+  </section>
   <!-- PROPRIETOR HIGHLIGHT STRIP WITH ENLARGED CONTACT -->
   <section class="py-10 bg-slate-900 border-y border-amber-500/20">
     <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-6">
@@ -550,45 +588,7 @@ html, body {
     </div>
   </section>
 
-  <!-- FEATURED PROPERTIES DIRECTORY -->
-  <section id="properties" class="py-20 bg-slate-950 border-t border-slate-800/80">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
-        <div>
-          <span class="text-amber-400 font-bold tracking-wider text-xs uppercase bg-amber-400/10 px-3 py-1 rounded-full border border-amber-400/20">Direct Deal • Zero Intermediaries</span>
-          <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-3">Verified Properties Directory</h2>
-          <p class="text-slate-400 text-sm mt-1">Every listed property is thoroughly scrutinized and title-verified by Babaji Properties.</p>
-        </div>
-
-        <!-- Filter Tabs -->
-        <div class="flex flex-wrap gap-2 text-xs font-semibold" id="categoryFilterContainer">
-          <button onclick="filterCategory('all')" class="category-btn active px-4 py-2 rounded-lg gold-gradient-bg text-slate-950 transition" data-filter="all">All Properties</button>
-          <button onclick="filterCategory('plot')" class="category-btn px-4 py-2 rounded-lg bg-slate-900 text-slate-300 border border-slate-800 hover:text-amber-400 transition" data-filter="plot">Plots</button>
-          <button onclick="filterCategory('commercial')" class="category-btn px-4 py-2 rounded-lg bg-slate-900 text-slate-300 border border-slate-800 hover:text-amber-400 transition" data-filter="commercial">Commercial</button>
-          <button onclick="filterCategory('house')" class="category-btn px-4 py-2 rounded-lg bg-slate-900 text-slate-300 border border-slate-800 hover:text-amber-400 transition" data-filter="house">Houses & Villas</button>
-          <button onclick="filterCategory('land')" class="category-btn px-4 py-2 rounded-lg bg-slate-900 text-slate-300 border border-slate-800 hover:text-amber-400 transition" data-filter="land">Agro Land</button>
-        </div>
-      </div>
-
-      <!-- Properties Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="propertiesGrid">
-        <!-- Rendered via JS -->
-      </div>
-
-      <!-- Post Property / Need Custom Property CTA -->
-      <div class="mt-14 bg-gradient-to-r from-amber-950/40 via-slate-900 to-amber-950/40 border border-amber-500/30 rounded-2xl p-8 text-center max-w-4xl mx-auto">
-        <h3 class="text-xl sm:text-2xl font-bold text-white mb-2">Looking to Sell Your Property?</h3>
-        <p class="text-sm text-slate-300 mb-6 max-w-xl mx-auto">
-          List your land, residential home, or commercial space with Babaji Properties for fast, direct buyer connections and just 1% commission!
-        </p>
-        <button onclick="openLeadModal('Sell Property Request')" class="px-7 py-3 rounded-xl gold-gradient-bg text-slate-950 font-extrabold text-sm hover:scale-105 transition shadow-lg shadow-amber-500/20">
-          <i class="fa-solid fa-bullhorn mr-2"></i> Register Your Property to Sell
-        </button>
-      </div>
-
-    </div>
-  </section>
+  
 
   <!-- WHY CHOOSE BABAJI PROPERTIES -->
   <section id="about" class="py-20 bg-slate-900">
