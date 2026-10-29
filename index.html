@@ -426,7 +426,7 @@ html, body {
               <span>Monthly EMI Estimate</span>
             </div>
             
-            <p class="text-xs text-slate-400">Calculated at standard 8.5% p.a. for a 20-year tenure:</p>
+           <p class="text-xs text-slate-400">Calculated at standard 7.4% p.a. for a 20-year tenure:</p>
             
             <div class="border-b border-slate-800 pb-3">
               <p class="text-xs text-slate-400">Estimated Monthly Installment</p>
@@ -1299,8 +1299,8 @@ function filterPropertiesByBudget() {
       downPaymentDisplay.textContent = "₹ " + downPayment.toLocaleString('en-IN');
       loanAmountDisplay.textContent = "₹ " + loanAmount.toLocaleString('en-IN');
 
-      // 80% Loan EMI calculation: P * r * (1+r)^n / ((1+r)^n - 1)
-      const annualRate = 0.085; // 8.5%
+     // 80% Loan EMI calculation: P * r * (1+r)^n / ((1+r)^n - 1)
+const annualRate = 0.074; // 7.4%
       const monthlyRate = annualRate / 12;
       const tenureMonths = 20 * 12; // 20 years
 
