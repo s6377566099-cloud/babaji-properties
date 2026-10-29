@@ -384,11 +384,11 @@ html, body {
                 <label class="text-sm font-semibold text-slate-300">Estimated Property Value</label>
                 <span id="sliderValueDisplay" class="text-2xl font-black text-amber-400">₹ 45,00,000</span>
               </div>
-             <input type="range" id="propertySlider" min="500000" max="500000000" step="500000" value="4500000" class="w-full h-2.5 bg-slate-800 rounded-lg appearance-none cursor-pointer">
+            <input type="range" id="propertySlider" min="500000" max="100000000" step="500000" value="4500000" class="w-full h-2.5 bg-slate-800 rounded-lg appearance-none cursor-pointer">
 <div class="flex justify-between text-[11px] text-slate-500 mt-2 font-mono">
   <span>₹5 Lakh</span>
-  <span>₹25 Crore</span>
-  <span>₹50 Crore</span>
+  <span>₹5 Crore</span>
+  <span>₹10 Crore</span>
 </div>
             </div>
 
@@ -439,9 +439,9 @@ html, body {
               <p><i class="fa-solid fa-check text-green-400 mr-1.5"></i> Transparent pricing with no hidden charges</p>
             </div>
 
-            <button onclick="openLeadModal('Calculator Inquiry')" class="w-full py-3.5 rounded-xl gold-gradient-bg text-slate-950 font-extrabold text-sm hover:opacity-95 transition">
-              Find Properties in This Budget &rarr;
-            </button>
+            <button onclick="filterPropertiesByBudget()" class="w-full py-3.5 rounded-xl gold-gradient-bg text-slate-950 font-extrabold text-sm hover:opacity-95 transition">
+  Find Properties in This Budget &rarr;
+</button>
           </div>
 
         </div>
@@ -1164,7 +1164,45 @@ html, body {
       renderProperties(filtered);
       document.getElementById('properties').scrollIntoView({ behavior: 'smooth' });
     }
+// Filter properties matching slider budget
+function filterPropertiesByBudget() {
+  const slider = document.getElementById('propertySlider');
+  if (!slider) return;
+  const maxBudget = parseFloat(slider.value);
 
+  function parsePriceValue(priceStr) {
+    if (!priceStr) return 0;
+    const clean = priceStr.replace(/,/g, '');
+    const crMatch = clean.match(/([\d.]+)\s*Crore/i);
+    if (crMatch) return parseFloat(crMatch[1]) * 10000000;
+    const lakhMatch = clean.match(/([\d.]+)\s*Lakh/i);
+    if (lakhMatch) return parseFloat(lakhMatch[1]) * 100000;
+    return 0;
+  }
+
+  const filtered = propertiesData.filter(item => {
+    const itemVal = parsePriceValue(item.price);
+    return itemVal > 0 && itemVal <= maxBudget;
+  });
+
+  // Reset category tab styling to 'All Properties'
+  document.querySelectorAll('.category-btn').forEach(btn => {
+    if (btn.getAttribute('data-filter') === 'all') {
+      btn.classList.remove('bg-slate-900', 'text-slate-300', 'border');
+      btn.classList.add('gold-gradient-bg', 'text-slate-950');
+    } else {
+      btn.classList.add('bg-slate-900', 'text-slate-300', 'border');
+      btn.classList.remove('gold-gradient-bg', 'text-slate-950');
+    }
+  });
+
+  renderProperties(filtered);
+
+  const target = document.getElementById('properties');
+  if (target) {
+    target.scrollIntoView({ behavior: 'smooth' });
+  }
+}
     // Property Detail Modal
     function viewPropertyDetail(id) {
       const prop = propertiesData.find(p => p.id === id);
