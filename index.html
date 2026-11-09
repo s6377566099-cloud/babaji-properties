@@ -232,7 +232,91 @@ html, body {
 
     </div>
   </section>
-<!-- FEATURED PROPERTIES DIRECTORY -->
+<!-- PROPERTY BUDGET & EMI CALCULATOR (INTERACTIVE TOOL) -->
+  <section id="calculator" class="py-16 bg-gradient-to-b from-slate-900 via-slate-950 to-slate-900 border-y border-slate-800">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      
+      <div class="text-center mb-10">
+        <span class="text-amber-400 font-bold text-xs uppercase bg-amber-400/10 px-3 py-1 rounded-full border border-amber-400/20">Financial Planning Tool</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2">Property Budget & EMI Calculator</h2>
+        <p class="text-slate-400 text-sm mt-1">Estimate your investment requirements and monthly loan installments with clarity.</p>
+      </div>
+
+      <div class="bg-slate-900/90 border border-amber-500/30 rounded-3xl p-6 sm:p-10 shadow-2xl relative">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          
+          <!-- Slider Control -->
+          <div class="lg:col-span-7 space-y-6">
+            <div>
+              <div class="flex justify-between items-center mb-2">
+                <label class="text-sm font-semibold text-slate-300">Estimated Property Value</label>
+                <span id="sliderValueDisplay" class="text-2xl font-black text-amber-400">₹ 45,00,000</span>
+              </div>
+            <input type="range" id="propertySlider" min="500000" max="100000000" step="500000" value="4500000" class="w-full h-2.5 bg-slate-800 rounded-lg appearance-none cursor-pointer">
+<div class="flex justify-between text-[11px] text-slate-500 mt-2 font-mono">
+  <span>₹5 Lakh</span>
+  <span>₹5 Crore</span>
+  <span>₹10 Crore</span>
+</div>
+            </div>
+
+            <!-- Breakdown Cards -->
+            <div class="grid grid-cols-2 gap-4 pt-2">
+              <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 text-center">
+                <span class="text-[11px] text-slate-400 font-bold uppercase tracking-wider">Estimated Down Payment (20%)</span>
+                <p id="downPaymentDisplay" class="text-xl font-bold text-slate-200 mt-1">₹ 9,00,000</p>
+                <p class="text-[10px] text-slate-500 mt-1">Self-funded share</p>
+              </div>
+
+              <div class="bg-slate-950 p-4 rounded-xl border border-amber-500/40 text-center">
+                <span class="text-[11px] text-amber-400 font-bold uppercase tracking-wider">Eligible Bank Loan (80%)</span>
+                <p id="loanAmountDisplay" class="text-xl font-bold text-amber-300 mt-1">₹ 36,00,000</p>
+                <p class="text-[10px] text-slate-400 mt-1">Nationalized / Private Banks</p>
+              </div>
+            </div>
+
+            <div class="p-4 bg-slate-950 border border-slate-800 rounded-xl flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <i class="fa-solid fa-handshake-angle text-amber-400 text-2xl"></i>
+                <div>
+                  <p class="text-xs text-white font-semibold">Direct Party Deals</p>
+                  <p class="text-[11px] text-slate-400">Transparent negotiation directly with the seller</p>
+                </div>
+              </div>
+              <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider bg-emerald-950/60 px-3 py-1 rounded-full border border-emerald-500/30">Verified</span>
+            </div>
+          </div>
+
+          <!-- Quick EMI Estimation Box -->
+          <div class="lg:col-span-5 bg-slate-950 p-6 rounded-2xl border border-slate-800 space-y-4">
+            <div class="flex items-center gap-2 text-amber-400 text-sm font-bold">
+              <i class="fa-solid fa-calculator"></i>
+              <span>Monthly EMI Estimate</span>
+            </div>
+            
+           <p class="text-xs text-slate-400">Calculated at standard 7.4% p.a. for a 20-year tenure:</p>
+            
+            <div class="border-b border-slate-800 pb-3">
+              <p class="text-xs text-slate-400">Estimated Monthly Installment</p>
+              <p id="emiDisplay" class="text-3xl font-black text-amber-400 mt-1">₹ 31,241 / mo</p>
+            </div>
+
+            <div class="text-[11px] text-slate-400 space-y-1.5">
+              <p><i class="fa-solid fa-check text-green-400 mr-1.5"></i> Assistance with home loan processing</p>
+              <p><i class="fa-solid fa-check text-green-400 mr-1.5"></i> Clear title verification & registry support</p>
+              <p><i class="fa-solid fa-check text-green-400 mr-1.5"></i> Transparent pricing with no hidden charges</p>
+            </div>
+
+            <button onclick="filterPropertiesByBudget()" class="w-full py-3.5 rounded-xl gold-gradient-bg text-slate-950 font-extrabold text-sm hover:opacity-95 transition">
+  Find Properties in This Budget &rarr;
+</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- FEATURED PROPERTIES DIRECTORY -->
   <section id="properties" class="py-20 bg-slate-950 border-t border-slate-800/80">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
@@ -360,91 +444,6 @@ html, body {
         <h3 class="text-lg font-bold text-white mb-2">Construction & Colonizers</h3>
         <p class="text-xs text-slate-400 leading-relaxed">Colonizer projects, new residential developments, and high-ROI investment partnerships.</p>
         <span class="mt-4 inline-block text-xs font-semibold text-amber-400 group-hover:underline">Explore &rarr;</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROPERTY BUDGET & EMI CALCULATOR (INTERACTIVE TOOL) -->
-  <section id="calculator" class="py-16 bg-gradient-to-b from-slate-900 via-slate-950 to-slate-900 border-y border-slate-800">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6">
-      
-      <div class="text-center mb-10">
-        <span class="text-amber-400 font-bold text-xs uppercase bg-amber-400/10 px-3 py-1 rounded-full border border-amber-400/20">Financial Planning Tool</span>
-        <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2">Property Budget & EMI Calculator</h2>
-        <p class="text-slate-400 text-sm mt-1">Estimate your investment requirements and monthly loan installments with clarity.</p>
-      </div>
-
-      <div class="bg-slate-900/90 border border-amber-500/30 rounded-3xl p-6 sm:p-10 shadow-2xl relative">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-          
-          <!-- Slider Control -->
-          <div class="lg:col-span-7 space-y-6">
-            <div>
-              <div class="flex justify-between items-center mb-2">
-                <label class="text-sm font-semibold text-slate-300">Estimated Property Value</label>
-                <span id="sliderValueDisplay" class="text-2xl font-black text-amber-400">₹ 45,00,000</span>
-              </div>
-            <input type="range" id="propertySlider" min="500000" max="100000000" step="500000" value="4500000" class="w-full h-2.5 bg-slate-800 rounded-lg appearance-none cursor-pointer">
-<div class="flex justify-between text-[11px] text-slate-500 mt-2 font-mono">
-  <span>₹5 Lakh</span>
-  <span>₹5 Crore</span>
-  <span>₹10 Crore</span>
-</div>
-            </div>
-
-            <!-- Breakdown Cards -->
-            <div class="grid grid-cols-2 gap-4 pt-2">
-              <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 text-center">
-                <span class="text-[11px] text-slate-400 font-bold uppercase tracking-wider">Estimated Down Payment (20%)</span>
-                <p id="downPaymentDisplay" class="text-xl font-bold text-slate-200 mt-1">₹ 9,00,000</p>
-                <p class="text-[10px] text-slate-500 mt-1">Self-funded share</p>
-              </div>
-
-              <div class="bg-slate-950 p-4 rounded-xl border border-amber-500/40 text-center">
-                <span class="text-[11px] text-amber-400 font-bold uppercase tracking-wider">Eligible Bank Loan (80%)</span>
-                <p id="loanAmountDisplay" class="text-xl font-bold text-amber-300 mt-1">₹ 36,00,000</p>
-                <p class="text-[10px] text-slate-400 mt-1">Nationalized / Private Banks</p>
-              </div>
-            </div>
-
-            <div class="p-4 bg-slate-950 border border-slate-800 rounded-xl flex items-center justify-between">
-              <div class="flex items-center gap-3">
-                <i class="fa-solid fa-handshake-angle text-amber-400 text-2xl"></i>
-                <div>
-                  <p class="text-xs text-white font-semibold">Direct Party Deals</p>
-                  <p class="text-[11px] text-slate-400">Transparent negotiation directly with the seller</p>
-                </div>
-              </div>
-              <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider bg-emerald-950/60 px-3 py-1 rounded-full border border-emerald-500/30">Verified</span>
-            </div>
-          </div>
-
-          <!-- Quick EMI Estimation Box -->
-          <div class="lg:col-span-5 bg-slate-950 p-6 rounded-2xl border border-slate-800 space-y-4">
-            <div class="flex items-center gap-2 text-amber-400 text-sm font-bold">
-              <i class="fa-solid fa-calculator"></i>
-              <span>Monthly EMI Estimate</span>
-            </div>
-            
-           <p class="text-xs text-slate-400">Calculated at standard 7.4% p.a. for a 20-year tenure:</p>
-            
-            <div class="border-b border-slate-800 pb-3">
-              <p class="text-xs text-slate-400">Estimated Monthly Installment</p>
-              <p id="emiDisplay" class="text-3xl font-black text-amber-400 mt-1">₹ 31,241 / mo</p>
-            </div>
-
-            <div class="text-[11px] text-slate-400 space-y-1.5">
-              <p><i class="fa-solid fa-check text-green-400 mr-1.5"></i> Assistance with home loan processing</p>
-              <p><i class="fa-solid fa-check text-green-400 mr-1.5"></i> Clear title verification & registry support</p>
-              <p><i class="fa-solid fa-check text-green-400 mr-1.5"></i> Transparent pricing with no hidden charges</p>
-            </div>
-
-            <button onclick="filterPropertiesByBudget()" class="w-full py-3.5 rounded-xl gold-gradient-bg text-slate-950 font-extrabold text-sm hover:opacity-95 transition">
-  Find Properties in This Budget &rarr;
-</button>
-          </div>
-
-        </div>
       </div>
     </div>
   </section>
